@@ -5,11 +5,8 @@ This guide covers installation, development workflow, and common operations for 
 ## Table of Contents
 
 - [Installation](#installation)
-- [Local Development](#local-development)
-- [Reloading Changes](#reloading-changes)
 - [Package Structure](#package-structure)
 - [Available Features](#available-features)
-- [Database Migrations](#database-migrations)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -24,7 +21,7 @@ This guide covers installation, development workflow, and common operations for 
 "repositories": [
     {
         "type": "vcs",
-        "url": "git@github.com:yourusername/finance.git"
+        "url": "git@github.com:sejanH/laravel-chart-of-accounts.git"
     }
 ]
 ```
@@ -163,8 +160,7 @@ All routes are prefixed with `/finance` and require authentication:
 
 ---
 
-## Support
-
+## Troubleshooting 
 For issues or questions:
 1. Check this documentation first
 2. Review the controller code for usage examples
