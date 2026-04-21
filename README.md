@@ -7,6 +7,7 @@ This guide covers installation, development workflow, and common operations for 
 - [Installation](#installation)
 - [Package Structure](#package-structure)
 - [Available Features](#available-features)
+- [Authorization & Permissions](#authorization--permissions)
 - [Troubleshooting](#troubleshooting)
 
 ---
@@ -29,7 +30,7 @@ This guide covers installation, development workflow, and common operations for 
 2. Require the package:
 
 ```bash
-composer require sejan/finance:v1.0.0
+composer require sejan/laravel-chart-of-accounts:v1.0.0
 ```
 3. Ensure migrations are published:
 ```bash
@@ -160,6 +161,66 @@ All routes are prefixed with `/finance` and require authentication:
 
 ---
 
+## Authorization & Permissions
+
+This package uses Laravel's authorization system to control access to finance features. All finance routes require authentication and check for the `finance.manage` permission.
+
+### Required Permissions
+
+| Permission | Description |
+|------------|-------------|
+| `finance.manage` | Full access to create, update, and delete vouchers and accounts |
+
+### Implementing Authorization in Your Application
+
+You need to define the `finance.manage` gate in your application's `AuthServiceProvider.php`:
+
+#### Option 1: Allow All Authenticated Users
+```php
+// app/Providers/AuthServiceProvider.php
+
+use Illuminate\Support\Facades\Gate;
+
+public function boot(): void
+{
+    Gate::define('finance.manage', function ($user) {
+        return true; // All authenticated users can manage
+    });
+}
+```
+
+#### Option 2: Role-Based Access Control
+```php
+public function boot(): void
+{
+    Gate::define('finance.manage', function ($user) {
+        return $user->role === 'admin' || $user->role === 'accountant';
+    });
+}
+```
+
+#### Option 3: Using Spatie Laravel Permission
+```php
+public function boot(): void
+{
+    Gate::define('finance.manage', function ($user) {
+        return $user->hasPermissionTo('manage finance');
+    });
+}
+```
+
+Then assign the permission:
+```bash
+php artisan permission:create-permission "manage finance"
+php artisan permission:assign "manage finance" admin@example.com
+```
+
+### Disabling Authorization
+
+If you want to disable authorization checks and allow all authenticated users to manage finance, simply define the gate to always return `true` as shown in Option 1 above.
+
+---
+
 ## Troubleshooting 
 For issues or questions:
 1. Check this documentation first
@@ -169,4 +230,4 @@ For issues or questions:
 
 ---
 
-**Last Updated**: April 19, 2026
+**Last Updated**: April 21, 2026
