@@ -1,4 +1,4 @@
-# Sejan Finance Package - How To Guide
+# Finance Package - How To Guide
 
 This guide covers installation, development workflow, and common operations for the Sejan Finance package.
 
