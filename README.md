@@ -30,7 +30,7 @@ This guide covers installation, development workflow, and common operations for 
 2. Require the package:
 
 ```bash
-composer require sejan/laravel-chart-of-accounts:v1.0.0
+composer require sejanh/laravel-chart-of-accounts:v1.0.0
 ```
 3. Ensure migrations are published:
 ```bash
