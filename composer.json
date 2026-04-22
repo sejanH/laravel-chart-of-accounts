@@ -19,5 +19,17 @@
                 "Sejan\\Finance\\FinanceServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --tag=finance-views --force",
+            "@php artisan vendor:publish --tag=finance-migrations",
+            "@php artisan vendor:publish --tag=finance-config --force"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=finance-views --force",
+            "@php artisan vendor:publish --tag=finance-migrations",
+            "@php artisan vendor:publish --tag=finance-config --force"
+        ]
     }
 }

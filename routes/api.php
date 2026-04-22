@@ -52,4 +52,3 @@ Route::middleware(['auth:sanctum'])->prefix('finance')->name('finance.api.')->gr
         Route::get('/accounting-ledger', [AccountingLedgerController::class, 'index'])->name('ledger.index');
     });
 });
-});
