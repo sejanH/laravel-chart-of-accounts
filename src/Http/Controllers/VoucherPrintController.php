@@ -32,7 +32,7 @@ class VoucherPrintController extends Controller
                 'phone' => setting('company_phone'),
                 'email' => setting('company_email', config('mail.from.address')),
             ],
-            'pdfUrl' => route('finance.v2.vouchers.pdf', $voucher->id),
+            'pdfUrl' => route('finance.vouchers.pdf', $voucher->id),
             'isPdf' => $asPdf,
         ];
 

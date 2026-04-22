@@ -318,7 +318,7 @@ export default function VoucherEntry({
                             </div>
 
                             <div className="text-sm text-slate-500">
-                                Need to maintain account codes first? <Link href={route('finance.v2.chart-of-accounts.index')} className="font-semibold text-indigo-600">Open V2 Chart of Accounts</Link>
+                                Need to maintain account codes first? <Link href={route('finance.chart-of-accounts.index')} className="font-semibold text-indigo-600">Open V2 Chart of Accounts</Link>
                             </div>
                         </section>
                     </div>

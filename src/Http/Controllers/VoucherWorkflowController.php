@@ -134,7 +134,7 @@ class VoucherWorkflowController extends Controller
         ]);
 
         return redirect()
-            ->route('finance.v2.vouchers.index', ['selected' => $voucher->id])
+            ->route('finance.vouchers.index', ['selected' => $voucher->id])
             ->with('success', 'V2 voucher header saved. Now add voucher details.');
     }
 
@@ -169,7 +169,7 @@ class VoucherWorkflowController extends Controller
         ]);
 
         return redirect()
-            ->route('finance.v2.vouchers.index', ['selected' => $voucher->id])
+            ->route('finance.vouchers.index', ['selected' => $voucher->id])
             ->with('success', 'V2 voucher header updated.');
     }
 
@@ -178,7 +178,7 @@ class VoucherWorkflowController extends Controller
         $voucher->delete();
 
         return redirect()
-            ->route('finance.v2.vouchers.index')
+            ->route('finance.vouchers.index')
             ->with('success', 'V2 voucher deleted.');
     }
 
@@ -255,7 +255,7 @@ class VoucherWorkflowController extends Controller
         $this->recalculateTotals($voucher);
 
         return redirect()
-            ->route('finance.v2.vouchers.details', $voucher->id)
+            ->route('finance.vouchers.details', $voucher->id)
             ->with('success', 'Voucher detail added.');
     }
 
@@ -289,7 +289,7 @@ class VoucherWorkflowController extends Controller
         $this->recalculateTotals($voucher);
 
         return redirect()
-            ->route('finance.v2.vouchers.details', $voucher->id)
+            ->route('finance.vouchers.details', $voucher->id)
             ->with('success', 'Voucher detail updated.');
     }
 
@@ -309,7 +309,7 @@ class VoucherWorkflowController extends Controller
         });
 
         return redirect()
-            ->route('finance.v2.vouchers.details', $voucher->id)
+            ->route('finance.vouchers.details', $voucher->id)
             ->with('success', 'Voucher detail deleted.');
     }
 
@@ -334,9 +334,9 @@ class VoucherWorkflowController extends Controller
             'total_credit' => (float) $voucher->total_credit,
             'created_by_name' => $voucher->createdBy?->name,
             'updated_at' => optional($voucher->updated_at)?->toDateTimeString(),
-            'details_url' => route('finance.v2.vouchers.details', $voucher->id),
-            'print_url' => route('finance.v2.vouchers.print', $voucher->id),
-            'pdf_url' => route('finance.v2.vouchers.pdf', $voucher->id),
+            'details_url' => route('finance.vouchers.details', $voucher->id),
+            'print_url' => route('finance.vouchers.print', $voucher->id),
+            'pdf_url' => route('finance.vouchers.pdf', $voucher->id),
         ];
     }
 

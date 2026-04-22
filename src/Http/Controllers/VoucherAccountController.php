@@ -62,8 +62,8 @@ class VoucherAccountController extends Controller
         ]);
 
         return redirect()
-            ->route('finance.v2.chart-of-accounts.index')
-            ->with('success', 'V2 chart of account created.');
+            ->route('finance.chart-of-accounts.index')
+            ->with('success', 'Chart of account created.');
     }
 
     public function update(Request $request, VoucherAccount $voucherAccount): RedirectResponse
@@ -85,7 +85,7 @@ class VoucherAccountController extends Controller
         ]);
 
         return redirect()
-            ->route('finance.v2.chart-of-accounts.index')
+            ->route('finance.chart-of-accounts.index')
             ->with('success', 'V2 chart of account updated.');
     }
 
@@ -94,7 +94,7 @@ class VoucherAccountController extends Controller
         $voucherAccount->delete();
 
         return redirect()
-            ->route('finance.v2.chart-of-accounts.index')
+            ->route('finance.chart-of-accounts.index')
             ->with('success', 'V2 chart of account deleted.');
     }
 }
